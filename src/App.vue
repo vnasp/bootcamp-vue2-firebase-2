@@ -14,7 +14,9 @@
         <div class="separator"></div>
       </div>
       <div class="nav-item" v-if="authState.isAuthenticated">
-        <button @click="logout" class="bg-transparent border-0">Cerrar Sesión</button>
+        <button @click="logout" class="bg-transparent border-0">
+          Cerrar Sesión
+        </button>
         <div class="separator"></div>
       </div>
     </nav>
@@ -23,37 +25,36 @@
 </template>
 
 <script>
-import { signOut } from 'firebase/auth';
-import { auth } from './firebaseConfig';
-import { authState } from './main';
+import { signOut } from "firebase/auth";
+import { auth } from "./firebaseConfig";
+import { authState } from "./main";
 
 export default {
   data() {
     return {
-      authState
+      authState,
     };
   },
   methods: {
     async logout() {
       try {
         await signOut(auth);
-        this.$router.push('/');
+        this.$router.push("/");
       } catch (error) {
-        console.error('Error cerrando sesión:', error);
-        alert('Error cerrando sesión: ' + error.message);
+        console.error("Error cerrando sesión:", error);
+        alert("Error cerrando sesión: " + error.message);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
-
 <style>
-@import 'bootstrap/dist/css/bootstrap.min.css';
+@import "bootstrap/dist/css/bootstrap.min.css";
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antiadivased;
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;

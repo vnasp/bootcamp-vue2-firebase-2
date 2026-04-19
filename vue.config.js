@@ -1,4 +1,5 @@
-const { defineConfig } = require('@vue/cli-service')
+const { defineConfig } = require("@vue/cli-service");
 module.exports = defineConfig({
-  transpileDependencies: true
-})
+  publicPath: "/bootcamp-vue2-firebase-2/",
+  transpileDependencies: true,
+});
